@@ -123,80 +123,55 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <div class="collapse navbar-collapse">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link text-white" href="#"><i class="fas fa-home"></i> Home</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="#"><i class="fas fa-users"></i> My Network</a>
                 </li>
-                <li class="nav-item"><a class="nav-link text-white" href="#"><i class="fas fa-briefcase"></i> Jobs</a>
+                <li class="nav-item"><a class="nav-link text-white" href="#"><i class="fas fa-briefcase"></i> Jobs</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#"><i class="fas fa-comments"></i> Messaging</a>
                 </li>
-                <li class="nav-item"><a class="nav-link text-white" href="#"><i class="fas fa-comments"></i>
-                        Messaging</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#"><i class="fas fa-bell"></i>
-                        Notifications</a></li>
-                <li class="nav-item"><img src="https://media.licdn.com/dms/image/v2/D4D03AQETgiaudy569Q/profile-displayphoto-shrink_100_100/B4DZNjhlLwHIAY-/0/1732541569109?e=1745452800&v=beta&t=5ZHGzIkA5snQZUSYyIVOAVnVkspG7gY9AfBGYs_0JQo" width="30" class="rounded-circle" alt="Profile">
+                <li class="nav-item"><a class="nav-link text-white" href="#"><i class="fas fa-bell"></i> Notifications</a>
                 </li>
+                <li class="nav-item"><img
+                        src="https://media.licdn.com/dms/image/v2/D4D03AQETgiaudy569Q/profile-displayphoto-shrink_100_100/B4DZNjhlLwHIAY-/0/1732541569109?e=1745452800&v=beta&t=5ZHGzIkA5snQZUSYyIVOAVnVkspG7gY9AfBGYs_0JQo"
+                        width="30" class="rounded-circle" alt="Profile"></li>
             </ul>
         </div>
     </nav>
 
     <div class="container-fluid mt-4">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-sm-12 col-md-6 col-lg-4">
                 <div class="profile-card">
-                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQETgiaudy569Q/profile-displayphoto-shrink_200_200/B4DZNjhlLwHIAc-/0/1732541569109?e=1745452800&v=beta&t=s0VMOBqMgMapJDq5fOghwz291d4Ehk9ySXreuCJGjEk" width="150" alt="Profile Picture">
-                    <h5>Ahmed Mohamed salah</h5>
-                    <p>Software Engineer</p>
+                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQETgiaudy569Q/profile-displayphoto-shrink_200_200/B4DZNjhlLwHIAc-/0/1732541569109?e=1745452800&v=beta&t=s0VMOBqMgMapJDq5fOghwz291d4Ehk9ySXreuCJGjEk"
+                        width="150" alt="Profile Picture">
+                    <h5 id="profileName">Loading...</h5>
+                    <p id="profileTitle">Loading...</p>
                     <button class="btn btn-outline-primary btn-sm btn-block"><i class="fas fa-eye"></i> View
                         Profile</button>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-sm-12 col-md-6 col-lg-4">
                 <div id="feedContainer"></div>
                 <nav>
                     <ul class="pagination justify-content-center" id="pagination"></ul>
                 </nav>
             </div>
-            <div class="col-md-3">
+            <div class="col-sm-12 col-md-6 col-lg-4">
                 <div class="suggestions">
                     <h6>People you may know</h6>
-                    <ul class="list-unstyled">
-                        <li>
-                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQF1QbmAFhTNtA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1715774532387?e=1745452800&v=beta&t=gdgrwH_vSYxAXuqXAmsfqQ3l6tWbzwOF2dZo2UxxpNw" width="40" alt="Alice Smith">
-                            <div>
-                                <strong>Alice Smith</strong><br>
-                                <small>Product Manager</small>
-                            </div>
-                            <button class="btn btn-outline-primary btn-sm"><i class="fas fa-user-plus"></i>
-                                Connect</button>
-                        </li>
-                        <li>
-                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQETgiaudy569Q/profile-displayphoto-shrink_100_100/B4DZNjhlLwHIAY-/0/1732541569109?e=1745452800&v=beta&t=5ZHGzIkA5snQZUSYyIVOAVnVkspG7gY9AfBGYs_0JQo"
-                                width="40" alt="Bob Johnson">
-                            <div>
-                                <strong>Bob Johnson</strong><br>
-                                <small>UX Designer</small>
-                            </div>
-                            <button class="btn btn-outline-primary btn-sm"><i class="fas fa-user-plus"></i>
-                                Connect</button>
-                        </li>
-                        <li>
-                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQFp38uLMpPn1w/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1726927516392?e=1745452800&v=beta&t=yykFlzMMsVL1AZV6ZYXUKqBK-eugCF4u2SWBzkcVB0c"
-                                width="40" alt="Charlie Brown">
-                            <div>
-                                <strong>Charlie Brown</strong><br>
-                                <small>Data Scientist</small>
-                            </div>
-                            <button class="btn btn-outline-primary btn-sm"><i class="fas fa-user-plus"></i>
-                                Connect</button>
-                        </li>
-                    </ul>
+                    <ul class="list-unstyled" id="suggestionsList"></ul>
                 </div>
             </div>
         </div>
     </div>
+
 
     <footer class="footer bg-primary text-light">
         <div class="container">
@@ -217,81 +192,11 @@
         </div>
     </footer>
 
-    <script>
-        var posts = [];
-        var itemsPerPage = 5;
-        var currentPage = 3;
-        function generateFakePosts () {
-            for ( var i = 1; i <= 90; i++ ) {
-                posts.push( {
-                    id: i,
-                    title: 'Post Title ' + i,
-                    content: 'This is some sample content for post number ' + i + '.',
-                    author: 'Adel Elbamby',
-                    authorImage: 'https://media.licdn.com/dms/image/v2/D4D03AQG8Lw4V9cuKnw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1733112923020?e=1745452800&v=beta&t=UK42z0T6WRN1Rfs3ab2gBulsoVGA2kMFN7rgUqK_4k8',
-                    hours:i
-                } );
-            }
-        }
-        function displayPosts ( page ) {
-            var container = document.getElementById( 'feedContainer' );
-            container.innerHTML = '';
-            var start = ( page - 1 ) * itemsPerPage;
-            var end = start + itemsPerPage;
-            var pagePosts = posts.slice( start, end );
-            pagePosts.forEach( function ( post ) {
-                var div = document.createElement( 'div' );
-                div.className = 'feed-post';
-                div.innerHTML = `
-                    <div class="post-header">
-                        <img src="${post.authorImage}" width="30" alt="${post.author}">
-                        <div>
-                            <h6>${post.author}</h6>
-                            <small>${post.hours>24? Math.ceil(post.hours/24)+"days":post.hours+"hours"} ago</small>
-                        </div>
-                    </div>
-                    <h5>${post.title}</h5>
-                    <p>${post.content}</p>
-                    <div class="post-actions">
-                        <button class="btn btn-outline-secondary btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
-                        <button class="btn btn-outline-secondary btn-sm"><i class="far fa-comment"></i> Comment</button>
-                        <button class="btn btn-outline-secondary btn-sm"><i class="far fa-share-square"></i> Share</button>
-                    </div>
-                `;
-                container.appendChild( div );
-            } );
-        }
-        function setupPagination () {
-            var pagination = document.getElementById( 'pagination' );
-            pagination.innerHTML = '';
-            var pageCount = Math.ceil( posts.length / itemsPerPage );
-            for ( var i = 1; i <= pageCount; i++ ) {
-                var li = document.createElement( 'li' );
-                li.className = 'page-item ' + ( i === currentPage ? 'active' : '' );
-                var a = document.createElement( 'a' );
-                a.className = 'page-link';
-                a.href = '#';
-                a.innerText = i;
-                a.addEventListener( 'click', function ( e ) {
-                    e.preventDefault();
-                    currentPage = parseInt( this.innerText );
-                    displayPosts( currentPage );
-                    setupPagination();
-                } );
-                li.appendChild( a );
-                pagination.appendChild( li );
-            }
-        }
-        window.addEventListener( 'load', function () {
-            generateFakePosts();
-            displayPosts( currentPage );
-            setupPagination();
-        } );
-    </script>
+    <script src="./script.js "></script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -67,6 +67,7 @@
     <script>
         ( function () {
             'use strict';
+
             window.addEventListener( 'load', function () {
                 var form = document.getElementById( 'registerForm' );
                 form.addEventListener( 'submit', function ( event ) {
@@ -81,7 +82,14 @@
                             email: document.getElementById( 'regEmail' ).value,
                             password: document.getElementById( 'regPassword' ).value
                         };
-                        localStorage.setItem( 'user', JSON.stringify( user ) );
+                        var users=localStorage.getItem('users');
+                        if(users){
+                            users=JSON.parse(users);
+                            }else{
+                                users=[];
+                            }
+                        users.push(user);
+                        localStorage.setItem( 'users', JSON.stringify( <i class="far fa-users"></i> ) );
                         window.location.href = 'login.html';
                     }
                     form.classList.add( 'was-validated' );
@@ -89,10 +97,9 @@
             }, false );
         } )();
     </script>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+    integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 </html>
