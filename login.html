@@ -33,6 +33,10 @@
         <div class="text-center mt-4">
             <span class="logo">LinkedIn</span>
         </div>
+        <div id="errorAlert" class="alert alert-danger alert-dismissible fade show d-none" role="alert">
+            Invalid login credentials.
+            <button type="button" class="btn btn-danger btn-close mr-5" data-bs-dismiss="alert" aria-label="Close">X</button>
+        </div>
         <div class="login-card">
             <h4 class="text-center mb-4">Sign In</h4>
             <form id="loginForm" novalidate>
@@ -54,8 +58,17 @@
         </div>
     </div>
 
+
     <script>
         ( function () {
+            function showErrorAlert () {
+                const errorAlert = document.getElementById( 'errorAlert' );
+                errorAlert.classList.remove( 'd-none' );
+                setTimeout( () => {
+                    errorAlert.classList.add( 'd-none' ); 
+                }, 5000 ); 
+            }
+
             'use strict';
             window.addEventListener( 'load', function () {
                 var form = document.getElementById( 'loginForm' );
@@ -71,7 +84,7 @@
                         if ( storedUser && storedUser.email === email && storedUser.password === password ) {
                             window.location.href = 'index.html';
                         } else {
-                            alert( 'Invalid login credentials.' );
+                            showErrorAlert( );
                         }
                     }
                     form.classList.add( 'was-validated' );
