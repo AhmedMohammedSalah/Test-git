@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LinkedIn - Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f3f2ef;
+        }
+
+        .register-card {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #fff;
+        }
+
+        .logo {
+            font-size: 28px;
+            color: #0077B5;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-center mt-4">
+            <span class="logo">LinkedIn</span>
+        </div>
+        <div class="register-card">
+            <h4 class="text-center mb-4">Register</h4>
+            <form id="registerForm" novalidate>
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="firstName" required>
+                    <div class="invalid-feedback">Please enter your first name.</div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" required>
+                    <div class="invalid-feedback">Please enter your last name.</div>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input type="email" class="form-control" id="regEmail" required>
+                    <div class="invalid-feedback">Please enter a valid email.</div>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" class="form-control" id="regPassword" required minlength="6">
+                    <div class="invalid-feedback">Please enter a password with at least 6 characters.</div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </form>
+            <div class="text-center mt-3">
+                <a href="login.html">Already have an account? Sign in</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        ( function () {
+            'use strict';
+            window.addEventListener( 'load', function () {
+                var form = document.getElementById( 'registerForm' );
+                form.addEventListener( 'submit', function ( event ) {
+                    if ( form.checkValidity() === false ) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    } else {
+                        event.preventDefault();
+                        var user = {
+                            firstName: document.getElementById( 'firstName' ).value,
+                            lastName: document.getElementById( 'lastName' ).value,
+                            email: document.getElementById( 'regEmail' ).value,
+                            password: document.getElementById( 'regPassword' ).value
+                        };
+                        localStorage.setItem( 'user', JSON.stringify( user ) );
+                        window.location.href = 'login.html';
+                    }
+                    form.classList.add( 'was-validated' );
+                }, false );
+            }, false );
+        } )();
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
