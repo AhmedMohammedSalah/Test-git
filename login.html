@@ -61,6 +61,8 @@
 
     <script>
         ( function () {
+
+            'use strict';
             function showErrorAlert () {
                 const errorAlert = document.getElementById( 'errorAlert' );
                 errorAlert.classList.remove( 'd-none' );
@@ -69,7 +71,6 @@
                 }, 5000 ); 
             }
 
-            'use strict';
             window.addEventListener( 'load', function () {
                 var form = document.getElementById( 'loginForm' );
                 form.addEventListener( 'submit', function ( event ) {
