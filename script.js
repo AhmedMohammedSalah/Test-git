@@ -11,7 +11,9 @@ const API = {
       );
       if (!response.ok) throw new Error("Failed to fetch posts");
       const posts = await response.json();
-      return { data: posts, totalPages: Math.ceil(posts.length / 5) };
+      console.log(posts);
+
+      return { data: posts, totalPages: Math.ceil(posts.length / 3) };
     } catch (error) {
       console.error("Error fetching posts:", error);
       return { data: [], totalPages: 0 };
@@ -19,9 +21,9 @@ const API = {
   },
 
   getSuggestions: () => [
-    { name: "Alice Smith", role: "Product Manager" },
-    { name: "Bob Johnson", role: "UX Designer" },
-    { name: "Charlie Brown", role: "Data Scientist" },
+    { name: "Abanoub alaa", role: "Product Manager" },
+    { name: "Sara Mohsen", role: "UX Designer" },
+    { name: "Mahmoud zaky", role: "Data Scientist" },
   ],
 };
 
@@ -30,7 +32,7 @@ document.getElementById("profileName").textContent = profileData.name;
 document.getElementById("profileTitle").textContent = profileData.title;
 
 let currentPage = 1;
-const itemsPerPage = 5;
+const itemsPerPage = 3;
 
 function displayPosts(posts, page) {
   const container = document.getElementById("feedContainer");
@@ -52,7 +54,7 @@ function displayPosts(posts, page) {
         </div>
       </div>
       <h5>${post.title}</h5>
-      <p>${post.content}</p>
+      <p>${post.coontent}</p>
       <div class="post-actions">
         <button class="btn btn-outline-secondary btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
         <button class="btn btn-outline-secondary btn-sm"><i class="far fa-comment"></i> Comment</button>
@@ -65,16 +67,18 @@ function displayPosts(posts, page) {
 
 function displaySuggestions(suggestions) {
   const suggestionImages = [
-    "https://media.licdn.com/dms/image/v2/D4D03AQF1QbmAFhTNtA/profile-displayphoto-shrink_100_100/0/1715774532387",
-    "https://media.licdn.com/dms/image/v2/D4D03AQETgiaudy569Q/profile-displayphoto-shrink_100_100/0/1732541569109",
-    "https://media.licdn.com/dms/image/v2/D4D03AQFp38uLMpPn1w/profile-displayphoto-shrink_100_100/0/1726927516392",
+    "https://media.licdn.com/dms/image/v2/D4D03AQFXovhybLF_Ew/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1711719899499?e=1745452800&v=beta&t=SYKiJHGLrVH1SAB6npNSeteUDsETRsKwctk2Sp8EFuU",
+    "https://media.licdn.com/dms/image/v2/D4D03AQEnU5_LWg2YDQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1711916778265?e=1745452800&v=beta&t=ltI52DXGHtlXP9RNgOx9_gYZ4hwSjGsRdjEDgNCiSe0",
+    "https://media.licdn.com/dms/image/v2/D4D03AQGEsjLF3hL6lA/profile-displayphoto-shrink_100_100/B4DZOMwLJDHoAg-/0/1733233307468?e=1745452800&v=beta&t=H1ZRHKw0Bl1os1ycrABuIRabkmqAMlDx0D5YglE9p0w",
   ];
   const container = document.getElementById("suggestionsList");
   container.innerHTML = "";
   suggestions.forEach((suggestion, index) => {
     const li = document.createElement("li");
     li.innerHTML = `
-      <img src="${suggestionImages[index]}" width="40" alt="${suggestion.name}">
+      <img src="${suggestionImages[index]}" width="40" alt="${
+      suggestion.name
+    }">
       <div>
         <strong>${suggestion.name}</strong><br>
         <small>${suggestion.role}</small>
